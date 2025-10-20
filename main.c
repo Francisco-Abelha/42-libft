@@ -3,28 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: fgoncal2 <fgoncal2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:44:41 by frgoncal          #+#    #+#             */
-/*   Updated: 2025/10/17 00:37:09 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/10/20 21:01:44 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
 	printf("---------------isalpha---------------\n");
-	char	c1;
+	int		c1;
 	int		num1;
 
-	c1 = '4';
+	c1 = 'a';
 	num1 = ft_isalpha(c1);
 	printf("%d\n", num1);
 
 	printf("---------------isdigit---------------\n");
-	char	c2;
+	int		c2;
 	int		num2;
 
 	c2 = '0';
@@ -32,7 +33,7 @@ int	main(void)
 	printf("%d\n", num2);
 
 	printf("---------------isalnum---------------\n");
-	char	c3;
+	int		c3;
 	int		num3;
 
 	c3 = '4';
@@ -40,12 +41,49 @@ int	main(void)
 	printf("%d\n", num3);
 
 	printf("---------------isascii---------------\n");
-	char	c4;
+	int		c4;
 	int		num4;
-	
-	c4 = '~';
+
+	c4 = 7;
 	num4 = ft_isascii(c4);
 	printf("%d\n", num4);
+
+	printf("--------------isprintable--------------\n");
+
+	int		c5;
+	int		num5;
+
+	c5 = 127;
+	num5 = ft_isprintable(c5);
+	printf("%d\n", num5);
+
+	printf("----------------strlen----------------\n");
+
+	char	*str1;
+	int		len1;
+
+	str1 = "sdhag";
+	len1 = ft_strlen(str1);
+	printf("%d\n", len1);
+
+	printf("----------------memset----------------\n");
+
+	char str[50] = "GeeksForGeeks is for programming geeks.";
+	printf("\nBefore memset(): %s\n", str);
+
+    // Fill 8 characters starting from str[13] with '.'
+	ft_memset(str + 13, '.', 8*sizeof(char));
+
+	printf("After memset():  %s\n", str);
+
+	printf("-----------------bzero-----------------\n");
+
+	char	str2[60] = "Bla bla bla mega bla bla bla type shi";
+	printf("\nBefore ft_bzero(): %s\n", str2);
+
+	ft_bzero(str2 + 12, 4*sizeof(char));
+
+	printf("After ft_bzero(): %s\n", str2);
 
 	return (0);
 }
