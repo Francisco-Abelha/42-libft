@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
+/*   By: fgoncal2 <fgoncal2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:44:41 by frgoncal          #+#    #+#             */
-/*   Updated: 2025/10/21 23:21:45 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/10/23 00:41:12 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,65 @@ int	main(void)
 
 	printf("-----------------memmove-----------------\n");
 
-	char str5[] = "ABCDE";
-	
-	ft_memmove(str5 + 1, str5, 4);
-	
+	char str5[20] = "ABCDEFGH";
+
+	ft_memmove(str5 + 2, str5, 3);
+
 	printf("%s\n", str5);
+
+	printf("-----------------strlcpy-----------------\n");
+
+	char	str6[20] = "asjdj4sh";
+	char	str7[6] = "";
+	int		len2;
+
+	len2 = strlcpy(str7, str6, sizeof(str7));
+	printf("%s\n", str7);
+	printf("%d\n", len2);
+
+	printf("-----------------strlcat-----------------\n");
+
+	char	str8[40] = "dasdfas";
+	char	str9[10] = "66345";
+	int		len3;
+
+	len3 = ft_strlcat(str9, str8, sizeof(str9));
+	printf("%s\n", str9);
+	printf("%d\n", len3);
+
+	printf("-----------------toupper-----------------\n");
+
+	int	low = 'x';
+
+	printf("%c\n", ft_toupper(low));
+
+	printf("-----------------tolower-----------------\n");
+
+	int	up = 'D';
+
+	printf("%c\n", ft_tolower(up));
+
+	printf("-----------------strchr-----------------\n");
+
+	char	haystack[40] = "haystack";
+	int		needle = 'a';
+
+	printf("%s\n", ft_strchr(haystack, needle));
+
+	printf("-----------------strrchr-----------------\n");
+
+	char	haystack2[40] = "haystack2";
+	int		needle2 = 'a';
+
+	printf("%s\n", ft_strrchr(haystack2, needle2));
+
+	printf("-----------------strncmp-----------------\n");
+
+	char	str10[20] = "abcdefg";
+	char	str11[20] = "abcdeff";
+
+	printf("%d\n", ft_strncmp(str10, str11, 5));
+
 
 	return (0);
 }
