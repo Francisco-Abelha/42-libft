@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:44:41 by frgoncal          #+#    #+#             */
-/*   Updated: 2025/10/23 15:14:58 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/10/23 15:37:23 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,14 @@ int	main(void)
 	char	str12[20] = "ahgdhada7";
 
 	printf("%s\n", (char *)ft_memchr(str12, '7', 10));
+
+	printf("-----------------memcmp-----------------\n");
+
+	char	str13[20] = "1234567";
+	char	str14[20] = "1234577";
+
+	printf("%d\n", ft_memcmp(str13, str14, 6));
+
 
 	return (0);
 }
