@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgoncal2 <fgoncal2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:44:41 by frgoncal          #+#    #+#             */
-/*   Updated: 2025/10/23 00:41:12 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/10/23 15:14:58 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,12 @@ int	main(void)
 
 	printf("%d\n", ft_strncmp(str10, str11, 5));
 
+
+	printf("-----------------memchr-----------------\n");
+	
+	char	str12[20] = "ahgdhada7";
+
+	printf("%s\n", (char *)ft_memchr(str12, '7', 10));
 
 	return (0);
 }
