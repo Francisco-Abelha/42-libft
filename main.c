@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:44:41 by frgoncal          #+#    #+#             */
-/*   Updated: 2025/10/24 00:29:01 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/10/24 00:57:40 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,5 +174,13 @@ int	main(void)
 	char	needle3[20] = "capa";
 
 	printf("%s\n", ft_strnstr(haystack3, needle3, 17));
+
+	printf("-----------------atoi-----------------\n");
+
+	char	str15[20] = "-3462sdf9898g";
+	int		atoiRet = ft_atoi(str15);
+
+	printf("%d\n", atoiRet);
+
 	return (0);
 }
