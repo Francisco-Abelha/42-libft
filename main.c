@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:44:41 by frgoncal          #+#    #+#             */
-/*   Updated: 2025/10/26 00:33:56 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/10/26 21:33:45 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,6 +252,20 @@ int	main(void)
     	free(ptr[i]);
 	}
 	free(arraySplit);
+
+	printf("------------------itoa-----------------\n");
+
+	int		num_itoa = -12836;
+	char	*char_itoa = ft_itoa(num_itoa);
+	int i = 0;
+
+	while (i < ft_strlen(char_itoa))
+	{
+		printf("%c", char_itoa[i]);
+		i++;
+	}
+	printf("\nfinal: %s\n", char_itoa);
+
 
 	return (0);
 }
