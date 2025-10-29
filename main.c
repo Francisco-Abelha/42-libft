@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:44:41 by frgoncal          #+#    #+#             */
-/*   Updated: 2025/10/28 18:09:00 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/10/29 20:53:00 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -278,5 +278,27 @@ int	main(void)
 
 	printf("%s\n", mapped);
 
+	printf("------------------putchar_fd-----------------\n");
+
+	int fd = open("file.txt", O_RDWR);
+	if (fd == -1)
+		return (-1);
+	ft_putchar_fd('p', fd);
+	ft_putchar_fd('\n', fd);
+
+	printf("------------------putstr_fd-----------------\n");
+
+	ft_putstr_fd("abcdef", fd);
+	ft_putchar_fd('\n', fd);
+
+	printf("------------------putstr_fd-----------------\n");
+
+	ft_putendl_fd("123456789", fd);
+
+	printf("------------------putnbr_fd-----------------\n");
+
+	ft_putnbr_fd(-2147483648, fd);
+	ft_putchar_fd('\n', fd);
+	
 	return (0);
 }
