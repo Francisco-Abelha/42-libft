@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:44:41 by frgoncal          #+#    #+#             */
-/*   Updated: 2025/10/28 16:58:28 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/10/28 18:09:00 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,6 +269,14 @@ int	main(void)
 	
 	ft_striteri(str24, add_index);
 	printf("%s\n", str24);
+
+	printf("------------------strmapi-----------------\n");
+
+	char	str25[] = "abcdefgh";
+
+	char	*mapped = ft_strmapi(str25, mapping_function);
+
+	printf("%s\n", mapped);
 
 	return (0);
 }

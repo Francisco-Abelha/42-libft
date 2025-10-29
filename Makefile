@@ -27,7 +27,8 @@ SRCS = ft_isalpha.c\
 		ft_strtrim.c\
 		ft_split.c\
 		ft_itoa.c\
-		ft_striteri.c
+		ft_striteri.c\
+		ft_strmapi.c
 
 OBJ = $(SRCS:.c=.o)
 
