@@ -40,6 +40,7 @@ BONUS_SRCS = ft_lstnew.c\
 			ft_lstlast.c\
 			ft_lstadd_back.c\
 			ft_lstdelone.c\
+			ft_lstclear.c\
 
 OBJ = $(SRCS:.c=.o)
 

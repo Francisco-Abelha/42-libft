@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:44:41 by frgoncal          #+#    #+#             */
-/*   Updated: 2025/10/30 22:09:54 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/11/02 20:26:14 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -354,15 +354,21 @@ int	main(void)
 
 	printf("----------------lstdelone----------------\n");
 
-	t_list	*list6 = ft_lstnew("dih");
-	t_list	*new_node4 = ft_lstnew("ahh");
-	t_list	*new_node5 = ft_lstnew("big");
+	char *malstr = malloc(10);
+	ft_strlcpy(malstr, "test1", 10);
 	
-	ft_lstadd_front(&list6, new_node4);
-	ft_lstadd_front(&list6, new_node5);
+	t_list	*list6 = ft_lstnew(malstr);
+	t_list	*new_node4 = ft_lstnew("dih");
+	t_list	*new_node5 = ft_lstnew("bih");
+	
+	ft_lstadd_back(&list6, new_node4);
+	ft_lstadd_back(&list6, new_node5);
 
-	
-	ft_lstdelone(&list6[0], del);
+	if (list6 != NULL) {
+    	t_list *to_delete = list6;
+    	list6 = list6->next;           // Move head forward
+    	ft_lstdelone(to_delete, del);  // Free old head
+	}
 	while (list6 != NULL)
 	{
 		printf("%s", (char *)list6->content);
@@ -370,6 +376,31 @@ int	main(void)
             printf(" -> ");
 		list6 = list6->next;
 	}
+	printf("\n");
+	printf("--------------------------------------------\n");
+	printf("|               LSTCLEAR                   |\n");
+	printf("--------------------------------------------\n");
 
+	t_list	*lst7 = NULL;
+
+	char	*a = ft_strdup("blahblahblah");
+	char	*b = ft_strdup("blehblehbleh");
+	char	*c = ft_strdup("bluhbluhbluh");
+
+	lst7 = ft_lstnew(a);
+	ft_lstadd_front(&lst7, ft_lstnew(b));
+	ft_lstadd_front(&lst7, ft_lstnew(c));
+
+	printf("%s -> %s -> %s\n", 
+		(char *)lst7->content,
+		(char *)lst7->next->content,
+		(char *)lst7->next->next->content);
+	
+	ft_lstclear(&lst7, del);
+
+	if (lst7 == NULL)
+        printf("List is now NULL (cleared)\n");
+    else
+        printf("%s\n", (char*)lst7->content);
 	return (0);
 }
