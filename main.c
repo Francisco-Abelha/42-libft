@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:44:41 by frgoncal          #+#    #+#             */
-/*   Updated: 2025/11/02 20:26:14 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/11/03 02:33:02 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -402,5 +402,52 @@ int	main(void)
         printf("List is now NULL (cleared)\n");
     else
         printf("%s\n", (char*)lst7->content);
+
+	printf("\n");
+	printf("--------------------------------------------\n");
+	printf("|                LSTITER                   |\n");
+	printf("--------------------------------------------\n");
+
+	t_list	*lst8 = NULL;
+
+	char	*d = ft_strdup("test1");
+	char	*e = ft_strdup("test2");
+	char	*f = ft_strdup("test3");
+
+	lst8 = ft_lstnew(d);
+	ft_lstadd_front(&lst8, ft_lstnew(e));
+	ft_lstadd_front(&lst8, ft_lstnew(f));
+
+	printf("%s -> %s -> %s\n", 
+		(char *)lst8->content,
+		(char *)lst8->next->content,
+		(char *)lst8->next->next->content);
+	
+	ft_lstiter(lst8, print_str);
+	ft_lstiter(lst8, to_upper);
+	ft_lstiter(lst8, print_str);
+
+	printf("\n");
+	printf("--------------------------------------------\n");
+	printf("|                LSTMAP                    |\n");
+	printf("--------------------------------------------\n");
+
+	t_list	*lst9 = NULL;
+	t_list	*lstmap = NULL;
+
+	char	*g = ft_strdup("test1");
+	char	*h = ft_strdup("test2");
+	char	*i = ft_strdup("test3");
+
+	lst9 = ft_lstnew(g);
+	ft_lstadd_front(&lst9, ft_lstnew(h));
+	ft_lstadd_front(&lst9, ft_lstnew(i));
+	
+	lstmap = ft_lstmap(lst9, to_upper2, del);
+	
+	printf("%s -> %s -> %s\n", 
+		(char *)lstmap->content,
+		(char *)lstmap->next->content,
+		(char *)lstmap->next->next->content);
 	return (0);
 }

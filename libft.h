@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:41:10 by frgoncal          #+#    #+#             */
-/*   Updated: 2025/11/02 20:15:44 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/11/02 23:16:45 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,17 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
-
-
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 //remove this declaration before submiting
 void	add_index(unsigned int i, char *c);
 char	mapping_function(unsigned int i, char c);
 void	del(void *ptr);
+void	print_str(void *content);
+void	to_upper(void *content);
+void	*to_upper2(void *content);
+
 
 
 #endif

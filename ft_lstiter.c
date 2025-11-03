@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/28 17:19:31 by fgoncal2          #+#    #+#             */
-/*   Updated: 2025/11/02 22:47:30 by fgoncal2         ###   ########.fr       */
+/*   Created: 2025/11/02 20:40:31 by fgoncal2          #+#    #+#             */
+/*   Updated: 2025/11/02 22:29:25 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char mapping_function(unsigned int i, char c)
+void print_str(void *content)
 {
-    return c + i;
+    printf("  [%s]\n", (char *)content);
 }
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void to_upper(void *content)
 {
-	char	*mapped;
-	size_t	len;
-	size_t	i;
+    char *s = (char *)content;
+    while (*s)
+    {
+        if (*s >= 'a' && *s <= 'z')
+            *s -= 32;
+        s++;
+    }
+}
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	t_list	*next;
 	
-	if (!s || !f)
-		return (NULL);
-	i = 0;
-	len = ft_strlen(s);
-	mapped = malloc(len + 1);
-	if (!mapped)
-		return (NULL);
-	while (i < len)
+	if (!lst || !f)
+		return ;
+	while (lst != NULL)
 	{
-		mapped[i] = f((unsigned int)i, s[i]);
-		i++;
+		next = lst->next;
+		f(lst->content);
+		lst = next;
 	}
-	mapped[i] = '\0';
-	return (mapped);
-	
 }
