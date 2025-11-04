@@ -62,16 +62,12 @@ bonus: $(OBJ) $(BONUS_OBJ)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-test: $(NAME)
-	$(CC) $(CFLAGS) main.c -L. -lft -o test_libft
-	./test_libft
-
 clean:
 	rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-	rm -f $(NAME) test_libft
+	rm -f $(NAME)
 
 re:	fclean all
 
-.PHONY: clean fclean all re test
+.PHONY: clean fclean all re

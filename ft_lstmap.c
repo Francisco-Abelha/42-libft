@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:44:33 by fgoncal2          #+#    #+#             */
-/*   Updated: 2025/11/04 16:30:37 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/11/04 18:59:23 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*to_upper2(void *content)
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*mapped;
-	t_list	*new_content;
+	void	*new_content;
 	t_list	*new_node;
 
 	if (!lst || !f || !del)
@@ -42,11 +42,14 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst)
 	{
 		new_content = f(lst->content);
-		if (!new_content)
-			return (ft_lstclear(&mapped, del), NULL);
 		new_node = ft_lstnew(new_content);
-		if (!new_node)
-			return (del(new_content), ft_lstclear(&mapped, del), NULL);
+		if (!new_content || !new_node)
+		{
+			if (!new_node && new_content)
+				del(new_content);
+			ft_lstclear(&mapped, del);
+			return (NULL);
+		}
 		ft_lstadd_back(&mapped, new_node);
 		lst = lst->next;
 	}
