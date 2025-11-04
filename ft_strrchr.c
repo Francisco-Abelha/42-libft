@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 00:24:41 by fgoncal2          #+#    #+#             */
-/*   Updated: 2025/11/04 12:21:31 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/11/04 18:17:38 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	len;
+	const char		*last;
 
-	len = ft_strlen(s);
-	while (1)
+	last = NULL;
+	while (*s)
 	{
-		if (s[len] == (char)c)
-			return ((char *)(s + len));
-		if (len == 0)
-			break ;
-		len--;
+		if (*s == (char)c)
+			last = s;
+		s++;
 	}
-	return (NULL);
+	if (*s == (char)c)
+		last = s;
+	return ((char *)last);
 }
