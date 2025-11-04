@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:36:04 by fgoncal2          #+#    #+#             */
-/*   Updated: 2025/10/28 14:47:04 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/11/04 12:07:09 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ char	*ft_strdup(const char *s)
 	ret[i] = '\0';
 	return (ret);
 }
-

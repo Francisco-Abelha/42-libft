@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgoncal2 <fgoncal2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 00:24:41 by fgoncal2          #+#    #+#             */
-/*   Updated: 2025/10/25 22:36:40 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/11/04 12:21:31 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ char	*ft_strrchr(const char *s, int c)
 		if (s[len] == (char)c)
 			return ((char *)(s + len));
 		if (len == 0)
-			break;
+			break ;
 		len--;
 	}
 	return (NULL);
 }
-

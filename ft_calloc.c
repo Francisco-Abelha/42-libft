@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgoncal2 <fgoncal2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 01:00:41 by fgoncal2          #+#    #+#             */
-/*   Updated: 2025/11/04 01:18:48 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/11/04 11:46:25 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*array;
-	size_t	i;
 
-	i = 0;
 	if (!nmemb || !size)
 		return (malloc(0));
 	if (nmemb * size > __SIZE_MAX__)
@@ -28,4 +26,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_memset(array, 0, size * nmemb);
 	return (array);
 }
-

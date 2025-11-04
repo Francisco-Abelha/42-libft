@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgoncal2 <fgoncal2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 20:32:07 by fgoncal2          #+#    #+#             */
-/*   Updated: 2025/10/26 00:27:56 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/11/04 12:24:42 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	countWords(char	const *s, char c)
+static size_t	count_words(char	const *s, char c)
 {
 	size_t	count;
 
@@ -29,7 +29,7 @@ static size_t	countWords(char	const *s, char c)
 	return (count);
 }
 
-static char	*copyWord(char const *s, char c)
+static char	*copy_word(char const *s, char c)
 {
 	size_t	len;
 	char	*word;
@@ -46,12 +46,12 @@ static char	*copyWord(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	numWords;
+	size_t	num_words;
 	char	**array;
 	char	**ptr;
 
-	numWords = countWords(s, c);
-	array = malloc((numWords + 1) * (sizeof(char *)));
+	num_words = count_words(s, c);
+	array = malloc((num_words + 1) * (sizeof(char *)));
 	if (!array)
 		return (NULL);
 	ptr = array;
@@ -61,7 +61,7 @@ char	**ft_split(char const *s, char c)
 			s++;
 		if (*s)
 		{
-			*ptr = copyWord(s, c);
+			*ptr = copy_word(s, c);
 			while (*s && *s != c)
 				s++;
 			ptr++;

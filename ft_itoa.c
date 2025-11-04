@@ -6,7 +6,7 @@
 /*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 19:05:55 by fgoncal2          #+#    #+#             */
-/*   Updated: 2025/10/28 16:12:43 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/11/04 12:06:46 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,24 @@ static size_t	num_len(unsigned int n)
 
 	count = 0;
 	if (n == 0)
-        return (1);
-    while (n > 0)
-    {
-        count++;
-        n /= 10;
-    }
-    return (count);
+		return (1);
+	while (n > 0)
+	{
+		count++;
+		n /= 10;
+	}
+	return (count);
 }
 
-static char	*fill_number(char *ret, unsigned int nbr, size_t len, size_t is_negative)
+static char	*fill_number(char *ret, unsigned int nbr, size_t len, size_t is_neg)
 {
 	ret[len] = '\0';
-	while (len-- > is_negative)
+	while (len-- > is_neg)
 	{
 		ret[len] = (nbr % 10) + '0';
 		nbr = nbr / 10;
 	}
-	if (is_negative)
+	if (is_neg)
 		ret[0] = '-';
 	return (ret);
 }

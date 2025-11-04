@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fgoncal2 <fgoncal2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fgoncal2 <fgoncal2@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:44:33 by fgoncal2          #+#    #+#             */
-/*   Updated: 2025/11/03 23:06:48 by fgoncal2         ###   ########.fr       */
+/*   Updated: 2025/11/04 12:50:39 by fgoncal2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,12 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*mapped;
 	t_list	*new_content;
 	t_list	*new_node;
-	t_list	*next;
 
-	mapped = NULL;
 	if (!lst || !f || !del)
 		return (NULL);
+	mapped = NULL;
 	while (lst)
 	{
-		next = lst->next;
 		new_content = f(lst->content);
 		if (!new_content)
 		{
@@ -57,7 +55,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			return (NULL);
 		}
 		ft_lstadd_back(&mapped, new_node);
-		lst = next;
 	}
 	return (mapped);
 }
